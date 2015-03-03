@@ -146,8 +146,9 @@ in
         if [ -n "$firstNonRootExt3Disk" ]; then
             mkdir -m 755 -p $targetRoot/$firstNonRootExt3Disk/root
 
-            mkdir -m 1777 -p $targetRoot/$firstNonRootExt3Disk/root/tmp $targetRoot/tmp
-            mount --bind $targetRoot/$firstNonRootExt3Disk/root/tmp $targetRoot/tmp
+            ${pkgs.utillinux}/bin/logger -t WIP 00000000
+            #mkdir -m 1777 -p $targetRoot/$firstNonRootExt3Disk/root/tmp $targetRoot/tmp
+            #mount --bind $targetRoot/$firstNonRootExt3Disk/root/tmp $targetRoot/tmp
 
             if [ ! -e $targetRoot/.ebs ]; then
                 mkdir -m 755 -p $targetRoot/$firstNonRootExt3Disk/root/var $targetRoot/var
