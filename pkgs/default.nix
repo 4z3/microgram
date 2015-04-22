@@ -171,9 +171,7 @@ in rec {
 
   pivotal_agent = pkgs.callPackage ./pivotal_agent {};
 
-  python2nix = pkgs.callPackage ./python2nix {
-    src = ./python2nix;
-  };
+  python2nix = pkgs.callPackage ./python2nix {};
 
   put-metric = pkgs.runCommand "${awsEc2.name}-put-metric" {} ''
     mkdir -p $out/bin

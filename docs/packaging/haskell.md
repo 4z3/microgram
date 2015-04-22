@@ -2,15 +2,13 @@
 
 Start with [cabal2nix](https://github.com/NixOS/cabal2nix).
 
-The workflow roughly looks like:
+Assuming your cabal project is referenceable as '<package>', the workflow
+roughly looks like:
 
 ```bash
-$ cabal2nix --sha256=ignoreme file:///path/to/package.cabal > ./my-app/default.nix
-$ vim ./my-app/default.nix # remove sha256 stuff and add src reference:
-#     src = git-repo-filter <my-app>;
-
+$ cabal2nix $(nix-instantiate --eval -E '<package>') | awk '{ if ($0 ~ /^  src/) sub("=.*;", "= <package>;");print $0}' > ./package/default.nix
 # now add to the packages attrset:
-   my-app = pkgs.haskellPackages.callPackage ./my-app {};
+   package = pkgs.haskellPackages.callPackage ./package {};
 ```
 
 You'll have to double-check if the dependencies inferred by `cabal2nix` actually exist
