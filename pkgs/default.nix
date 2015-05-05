@@ -99,6 +99,9 @@ in rec {
 
   graphviz = pkgs.callPackage ./graphviz {};
 
+  # Use Zalora's fork with jailbroken bytestring
+  haskell-memcached = pkgs.haskellngPackages.callPackage ./haskell-memcached {};
+
   heavy-sync = with pythonPackages; pkgs.callPackage ./heavy-sync {
     inherit boto;
     inherit gcs-oauth2-boto-plugin;
