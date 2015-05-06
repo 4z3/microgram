@@ -99,9 +99,12 @@ in rec {
 
   graphviz = pkgs.callPackage ./graphviz {};
 
+  haskell-base-compat = pkgs.haskellngPackages.callPackage ./haskell-base-compat {};
+
   haskell-base-orphans = pkgs.haskellngPackages.callPackage ./haskell-base-orphans {};
 
   haskell-getopt-generics = pkgs.haskellngPackages.callPackage ./haskell-getopt-generics {
+    base-compat = haskell-base-compat;
     base-orphans = haskell-base-orphans;
   };
 
