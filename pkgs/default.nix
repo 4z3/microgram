@@ -99,6 +99,8 @@ in rec {
 
   graphviz = pkgs.callPackage ./graphviz {};
 
+  haskell-base-orphans = pkgs.haskellngPackages.callPackage ./haskell-base-orphans {};
+
   haskell-getopt-generics = pkgs.haskellngPackages.callPackage ./haskell-getopt-generics {
     base-orphans = haskell-base-orphans;
   };
