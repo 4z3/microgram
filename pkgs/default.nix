@@ -99,6 +99,10 @@ in rec {
 
   graphviz = pkgs.callPackage ./graphviz {};
 
+  haskell-getopt-generics = pkgs.haskellngPackages.callPackage ./haskell-getopt-generics {
+    base-orphans = haskell-base-orphans;
+  };
+
   # Use Zalora's fork with jailbroken bytestring
   haskell-memcached = pkgs.haskellngPackages.callPackage ./haskell-memcached {};
 
