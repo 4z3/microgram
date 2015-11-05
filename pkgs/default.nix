@@ -81,6 +81,8 @@ in rec {
 
   angel = fns.staticHaskellCallPackage ./angel {};
 
+  ares = fns.staticHaskellCallPackage ./ares {};
+
   bridge-utils = pkgs.bridge_utils;
 
   couchbase = pkgs.callPackage ./couchbase {};
